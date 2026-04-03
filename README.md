@@ -3,6 +3,10 @@
 ### A Comprehensive Developer's Guide to the First Intelligent Blockchain
 
 <p align="center">
+  <img src="https://docs.genlayer.com/studio/evolution%20IC.jpg" alt="Evolution of Intelligent Contracts" width="750"/>
+</p>
+
+<p align="center">
   <strong>From Zero to Production-Ready Intelligent Contracts</strong><br/>
   <em>Master GenLayer's AI-native blockchain protocol, write Python-based Intelligent Contracts, and deploy decentralized applications that think, reason, and access the real world.</em>
 </p>
