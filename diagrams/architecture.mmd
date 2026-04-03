@@ -1,0 +1,31 @@
+%%{init: {'theme': 'base', 'themeVariables': { 'primaryColor': '#6366f1', 'primaryTextColor': '#ffffff', 'primaryBorderColor': '#4f46e5', 'lineColor': '#6366f1', 'secondaryColor': '#f0f9ff', 'tertiaryColor': '#f8fafc'}}}%%
+
+graph TD
+    subgraph User Layer
+        A[User / dApp] -->|Submit Transaction| B[GenLayer Network]
+    end
+
+    subgraph Consensus Layer
+        B --> C[Leader Selection]
+        C --> D[Leader Executes Contract]
+        D --> E[Validator Committee]
+        E -->|Equivalence Check| F{Majority Agrees?}
+        F -->|Yes| G[Provisional Accept]
+        F -->|No| H[Leader Rotation]
+        G --> I[Appeal Window]
+        I -->|No Appeal| J[Finalized]
+        I -->|Appeal Filed| K[New Validator Set]
+        K --> F
+    end
+
+    subgraph Execution Layer - GenVM
+        D --> L[Deterministic Code]
+        D --> M[Non-Deterministic Blocks]
+        M --> N[LLM Calls]
+        M --> O[Web Requests]
+        L --> P[State Updates]
+    end
+
+    style A fill:#6366f1,stroke:#4f46e5,color:#fff
+    style J fill:#22c55e,stroke:#16a34a,color:#fff
+    style H fill:#ef4444,stroke:#dc2626,color:#fff

@@ -1,0 +1,34 @@
+%%{init: {'theme': 'base'}}%%
+
+graph LR
+    subgraph strict_eq
+        A1[Function] --> B1[Leader Result]
+        A1 --> C1[Validator Result]
+        B1 --> D1{Exact Match?}
+        C1 --> D1
+        D1 -->|Yes| E1[Accept]
+        D1 -->|No| F1[Reject]
+    end
+
+    subgraph prompt_comparative
+        A2[Function] --> B2[Leader Result]
+        A2 --> C2[Validator Result]
+        B2 --> D2[LLM Compares]
+        C2 --> D2
+        D2 -->|Equivalent| E2[Accept]
+        D2 -->|Divergent| F2[Reject]
+    end
+
+    subgraph prompt_non_comparative
+        A3[Function] --> B3[Leader Result Only]
+        B3 --> D3[Validator Checks Criteria]
+        D3 -->|Meets Criteria| E3[Accept]
+        D3 -->|Fails| F3[Reject]
+    end
+
+    style E1 fill:#22c55e,color:#fff
+    style E2 fill:#22c55e,color:#fff
+    style E3 fill:#22c55e,color:#fff
+    style F1 fill:#ef4444,color:#fff
+    style F2 fill:#ef4444,color:#fff
+    style F3 fill:#ef4444,color:#fff
