@@ -2,12 +2,6 @@
 
 ### A Comprehensive Developer's Guide to the First Intelligent Blockchain
 
----
-
-<p align="center">
-  <img src="https://cdn.prod.website-files.com/68108d68d0fc0cfa0c26dbc9/68415915a9929b246e13bffb_02_Intelligent_Oracle_01_2k-cropped-xl.avif" alt="GenLayer Intelligent Contracts" width="800"/>
-</p>
-
 <p align="center">
   <strong>From Zero to Production-Ready Intelligent Contracts</strong><br/>
   <em>Master GenLayer's AI-native blockchain protocol, write Python-based Intelligent Contracts, and deploy decentralized applications that think, reason, and access the real world.</em>
@@ -18,8 +12,6 @@
   <a href="https://www.genlayer.com">Website</a> |
   <a href="https://discord.gg/genlayer">Discord</a>
 </p>
-
----
 
 ## Table of Contents
 
@@ -39,8 +31,6 @@
 14. [Security and Best Practices](#14-security-and-best-practices)
 15. [What's Next](#15-whats-next)
 
----
-
 ## 1. Introduction: Why GenLayer Matters
 
 Blockchains gave us trustless computation. Smart contracts gave us programmable agreements. But every smart contract today is fundamentally **deterministic** &mdash; it can only execute predefined logic on data that already exists on-chain. If a smart contract needs to know the weather, the price of gold, or whether a news article is factual, it depends on **external oracles** &mdash; centralized intermediaries that reintroduce trust assumptions.
@@ -55,8 +45,6 @@ GenLayer is the **first Intelligent Blockchain** &mdash; a protocol where smart 
 - **Interpret unstructured data** like text, images, and web pages
 
 This tutorial takes you from zero to building and deploying production-grade Intelligent Contracts. By the end, you will understand every layer of GenLayer's architecture, write contracts that leverage AI reasoning, and deploy them to the testnet.
-
----
 
 ## 2. The Blockchain Evolution: From Bitcoin to GenLayer
 
@@ -83,8 +71,6 @@ Traditional smart contracts face a fundamental constraint: they cannot access ex
 ### GenLayer's Answer
 
 GenLayer doesn't patch the oracle problem &mdash; it **dissolves** it. Intelligent Contracts access the web directly, interpret data using LLMs, and reach consensus through a novel mechanism called **Optimistic Democracy**.
-
----
 
 ## 3. Core Architecture Deep Dive
 
@@ -171,8 +157,6 @@ Two modes:
 
 Validators run diverse LLM models and participate in consensus through staking. Incorrect validation leads to **slashing** (stake penalty). Valid appeals reward the appellant; invalid appeals forfeit the bond.
 
----
-
 ## 4. Environment Setup
 
 ### Prerequisites
@@ -240,8 +224,6 @@ genlayer-project-boilerplate/
 ├── gltest.config.yaml  # Network configuration
 └── requirements.txt
 ```
-
----
 
 ## 5. Your First Contract: Hello, GenLayer
 
@@ -333,8 +315,6 @@ genlayer call --contract <ADDRESS> --method greet
 genlayer write --contract <ADDRESS> --method set_name --args "GenLayer"
 ```
 
----
-
 ## 6. Your First Intelligent Contract: AI Meets Blockchain
 
 Now let's cross the threshold into **non-deterministic territory**. This contract fetches a web page and determines whether it contains specific content.
@@ -399,8 +379,6 @@ class WebChecker(gl.Contract):
 ```
 
 **Why this isolation?** Leader and validators execute non-deterministic blocks independently. If storage writes happened inside these blocks, each node would write different values before consensus determines the correct one.
-
----
 
 ## 7. The Equivalence Principle: Consensus on Non-Determinism
 
@@ -468,8 +446,6 @@ Full control. The validator receives the leader's result and returns `True` or `
 <p align="center">
   <img src="https://cdn.prod.website-files.com/68108d68d0fc0cfa0c26dbc9/6846e093c83d47b3f75fef27_intelligent-contracts.svg" alt="Intelligent Contracts" width="250"/>
 </p>
-
----
 
 ## 8. Storage, Types, and State Management
 
@@ -557,8 +533,6 @@ def process(self):
     result = gl.eq_principle.prompt_comparative(nondet_block, principle="...")
 ```
 
----
-
 ## 9. Calling LLMs from Contracts
 
 The core function is `gl.nondet.exec_prompt()` &mdash; it sends a prompt to the LLM running on each validator node.
@@ -622,8 +596,6 @@ def analyze_image():
 4. **Use `gl.UserError()` for invalid responses** to trigger leader rotation
 5. **Clean response formatting** &mdash; strip markdown fences, whitespace
 
----
-
 ## 10. Web Access: Contracts That Read the Internet
 
 ### HTTP Requests
@@ -678,8 +650,6 @@ def check_health():
     status_code = response.status
     return "healthy" if status_code == 200 else "down"
 ```
-
----
 
 ## 11. Building a Complete Contract: Wizard of Coin
 
@@ -773,8 +743,6 @@ User submits request ("Please give me the coin")
 
 The LLM is asked for a **boolean decision** with a very strong directive ("do not give them the coin"). The JSON output is parsed down to `True`/`False`, making exact match between validators highly likely.
 
----
-
 ## 12. Testing Intelligent Contracts
 
 GenLayer provides a pytest-based testing framework with two modes.
@@ -862,8 +830,6 @@ genvm-lint check contracts/wizard_of_coin.py
 | **Consensus** | Seconds | Validator agreement | No |
 | **Integration** | Minutes | Full network behavior | Yes |
 
----
-
 ## 13. Deployment to Testnet
 
 ### Step 1: Configure Network
@@ -913,8 +879,6 @@ genlayer write --contract 0x456def... --method ask_for_coin --args "I am the cho
 genlayer transactions receipt <TX_HASH>
 ```
 
----
-
 ## 14. Security and Best Practices
 
 ### Prompt Injection Defense
@@ -956,8 +920,6 @@ def safe_parse(response):
 5. **Test with adversarial inputs** to stress-test prompt robustness
 6. **Avoid storing sensitive data** in contract state (it's public)
 
----
-
 ## 15. What's Next
 
 You now have a comprehensive understanding of GenLayer's Intelligent Contracts. Here's where to go from here:
@@ -985,15 +947,11 @@ You now have a comprehensive understanding of GenLayer's Intelligent Contracts. 
 - **GitHub**: Contribute to the protocol
 - **Testnet Bradbury**: Deploy and test your contracts
 
----
-
 <p align="center">
   <strong>Built for the GenLayer Builders Track</strong><br/>
   <em>"From Zero to GenLayer" Tutorial Mission</em><br/><br/>
   <a href="https://www.genlayer.com">GenLayer</a> | <a href="https://docs.genlayer.com">Documentation</a> | <a href="https://discord.gg/genlayer">Discord</a>
 </p>
-
----
 
 ## License
 
